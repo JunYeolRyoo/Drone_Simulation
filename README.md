@@ -14,3 +14,35 @@ UML class diagram for Decorator design pattern:
 
 UML class diagram for Observer design pattern:
 ![](images/oberserver.png)
+
+### How to run the simulation
+```
+# Navigate to the project directory 
+cd /path/to/repo/project 
+
+# Build the project
+make -j
+ 
+# Run the project (./build/web-app <port> <web folder>) 
+./build/bin/transit_service 8081 apps/transit_service/web/
+```
+Navigate to http://127.0.0.1:8081 in a web browser to see the simulation. Use http://127.0.0.1:8081/schedule.html to schedule deliveries.
+
+### Simulation Components
+**Simulation Model**:
+The core of the backend, managing the simulation, entities, and their interactions. It handles creation via JSON objects and communicates with web services for real-time updates.
+
+**User Interface (UI)**:
+Provides a simple UI for users to interact with the simulation, including focusing on specific objects, adjusting simulation speed, and scheduling deliveries.
+
+**Entities**:
+Entities are created using factories and adhere to the **IEntity** interface. They perform various tasks based on their properties and the update function.
+
+**Drone and Strategies**:
+Drones deliver packages using different routing algorithms (A* search, DFS, BFS, Dijkstra) and adjust routes based on real-time data.
+
+**UFO**:
+The UFO entity interacts with human entities, attempting to delete them when their count exceeds a threshold, ensuring the simulation runs smoothly without any lag.
+
+**Drone**
+![](images/drone.gif) ![](images/schedulePage.gif)
